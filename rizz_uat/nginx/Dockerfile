@@ -3,8 +3,7 @@ FROM nginx:latest
 RUN apt-get update -qq \
 && apt-get install -qqy unzip curl wget nano \
 && apt-get clean
-ADD static.zip /tmp/ && \
-RUN unzip -d /usr/share/nginx/assets/ /tmp/static.zip \
+RUN unzip -d /usr/share/nginx/assets/ static.zip \
     && rm -rf /tmp/static.zip
 COPY default.conf /etc/nginx/conf.d/default.conf
 RUN rm /var/log/nginx/access.log /var/log/nginx/error.log
