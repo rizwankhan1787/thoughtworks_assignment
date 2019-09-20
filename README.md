@@ -291,7 +291,7 @@ as a security-oriented, lightweight Linux distribution. If we can construct all 
 
  
 ### Run rizz_uating
-To spin up the muzzu_uating environment you can run *muzzu_master.sh* as follows:  
+To spin up the rizz_uating environment you can run *rizz_main.sh* as follows:  
 
 ````bash
 $ ./rizz_main.sh rizz_uat up
@@ -333,7 +333,7 @@ Request-Time: 0.002
 Upstream-Address: 172.18.0.2:8080
 Upstream-Response-Time: 1462915010.123
 
-$ ./rizz_master.sh test Read.action
+$ ./rizz_main.sh test Read.action
 curl -I -X GET http://localhost/Read.action
 HTTP/1.1 200 OK
 Server: nginx/1.9.15

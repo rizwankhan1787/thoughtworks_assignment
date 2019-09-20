@@ -7,11 +7,9 @@ MAINTAINER Rizwan khan
 ENV GITHUB_REPO https://github.com/rizwankhan1787/thoughtworks_assignment/blob/master/artifacts
 ENV STATIC_FILE static.zip
 RUN apt-get update -qq \
-  && apt-get install -qqy curl wget unzip nano \
+  && apt-get install -qqy curl wget unzip nano p7zip-full \
   && apt-get clean \
-  \
-  && wget -O /tmp/${STATIC_FILE} ${GITHUB_REPO}/${STATIC_FILE} \
-  && unzip /tmp/${STATIC_FILE} -d /usr/share/nginx/assets/
+COPY ../artifacts/static.zip /usr/share/nginx/assets/ \
 
 COPY default.conf /etc/nginx/conf.d/default.conf
 
