@@ -14,8 +14,7 @@ if [ ! -x "$(which docker)" ]; then
    
     echo "Check/Installing certbot ssl certificate"
      
-    [ ! -x "$(which docker)" ] && yum install python27-devel -y && git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
- && /opt/letsencrypt/letsencrypt-auto --debug && echo "rsa-key-size = 4096" >> /etc/letsencrypt/config.ini && echo "email = rizwankhan1787@gmail.com" >> /etc/letsencrypt/config.ini && /opt/letsencrypt/letsencrypt-auto certonly --debug --webroot -w /var/www/_us-east-2.compute.amazonaws.com -d us-east-2.compute.amazonaws.com  --config /etc/letsencrypt/config.ini --agree-tos 
+    [ ! -x "$(which docker)" ] && yum install python27-devel -y && git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt && /opt/letsencrypt/letsencrypt-auto --debug && echo "rsa-key-size = 4096" >> /etc/letsencrypt/config.ini && echo "email = rizwankhan1787@gmail.com" >> /etc/letsencrypt/config.ini && /opt/letsencrypt/letsencrypt-auto certonly --debug --webroot -w /var/www/_us-east-2.compute.amazonaws.com -d us-east-2.compute.amazonaws.com  --config /etc/letsencrypt/config.ini --agree-tos 
     
 
         
