@@ -149,11 +149,11 @@ After you log back in and cd tw_assignment  and run muzzu_master.sh
 ```bash
 $ cd  thoughtworks_assignment && ./rizz_main.sh
 
-muzzu usage: command [arg...]
+rizz usage: command [arg...]
 
 Commands:
 
-muzzu_uat      Creates the muzzu_uating environment
+rizz_uat      Creates the muzzu_uating environment
 prod       Creates the production environment
 pack       Tag and push production images
 status     Display the status of the environment
