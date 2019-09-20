@@ -192,7 +192,7 @@ the dynamic part of the application.
 
 The *
 * shell script is yet another wrapper for yet another markup language.
-In this case docker-compose. The script below is used to describe the muzzu_uating environment
+In this case docker-compose. The script below is used to describe the rizz_uating environment
 in terms of docker-compose.
 
 ```
@@ -269,7 +269,7 @@ reduce command line fat finger ~~mistakes~~.
 $ ./rizz_main.sh images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 
-$ ./rizz_main.sh muzzu_uat build
+$ ./rizz_main.sh rizz_uat build
 .
 .
 .
@@ -333,7 +333,7 @@ Request-Time: 0.002
 Upstream-Address: 172.18.0.2:8080
 Upstream-Response-Time: 1462915010.123
 
-$ ./muzzu_master.sh test Read.action
+$ ./rizz_master.sh test Read.action
 curl -I -X GET http://localhost/Read.action
 HTTP/1.1 200 OK
 Server: nginx/1.9.15
@@ -359,14 +359,14 @@ Removing network default
 Name   Command   State   Ports 
 ------------------------------
 
-$ ./muzzu_master.sh test
+$ ./rizz_main.sh test
 curl -I -X GET http://localhost/
 curl: (7) Failed to connect to localhost port 80: Connection refused
 
 ````
 
 ### Benchmarking the rizz_uating environment
-if you have installed Apache Bench to do some simple benchmarking. The muzzu_master.sh bench command 
+if you have installed Apache Bench to do some simple benchmarking. The rizz_main.sh bench command 
 runs ab apache bench, 1000 HTTP requests, 10 at a time to check how well our infrastructure standsup.
   
  `$ ab -n 1000 -c 10 http://localhost/`  
