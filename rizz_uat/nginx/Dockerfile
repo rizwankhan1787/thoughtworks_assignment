@@ -2,8 +2,9 @@
 
 FROM nginx:latest
 
+MAINTAINER Rizwan khan
 
-ENV GITHUB_REPO https://github.com/rizwankhan1787/thoughtworks_assignment/artifacts
+ENV GITHUB_REPO https://github.com/rizwankhan1787/thoughtworks_assignment/blob/master/artifacts
 ENV STATIC_FILE static.zip
 RUN apt-get update -qq \
   && apt-get install -qqy curl wget unzip nano \

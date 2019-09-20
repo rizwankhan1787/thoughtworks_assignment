@@ -24,7 +24,7 @@ services:
     - net
     hostname: web1
     volumes:
-      - ../data:/user/data/persistence
+      - ../data:/user/rizz/persistence
       
       
   web2:
@@ -35,7 +35,7 @@ services:
     - net
     hostname: web2
     volumes:
-      - ../data:/user/data/persistence
+      - ../data:/user/rizz/persistence
 
   elk:
     image: sebp/elk:latest
