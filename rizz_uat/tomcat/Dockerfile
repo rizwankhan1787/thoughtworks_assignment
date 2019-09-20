@@ -2,7 +2,7 @@ FROM tomcat:8.5.38-jre8
 
 MAINTAINER Rizwan khan
 
-ENV GITHUB_REPO https://github.com/rizwankhan1787/thoughtworks_assignment/artefacts
+ENV GITHUB_REPO https://github.com/rizwankhan1787/thoughtworks_assignment/artifacts
 ENV APP_FILE companyNews.war
 ENV TERM xterm
 ENV JAVA_OPTS -Djava.security.egd=file:/dev/./urandom
