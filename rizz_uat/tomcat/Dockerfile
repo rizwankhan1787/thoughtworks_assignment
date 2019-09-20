@@ -2,7 +2,7 @@
 
 FROM tomcat:8.5.38-jre8
 
-MAINTAINER Mujamil Ahamed
+MAINTAINER Rizwan khan
 
 ENV GITHUB_REPO https://github.com/rizwankhan1787/thoughtworks_assignment/artifacts
 ENV APP_FILE companyNews.war
@@ -12,11 +12,9 @@ ENV JAVA_OPTS -Djava.security.egd=file:/dev/./urandom
 RUN apt-get update -qq \
   && apt-get install -qqy curl wget \
   && apt-get clean \
-  \
   && touch /var/log/app.log \
   && chmod 666 /var/log/app.log \
-  \
-  && mkdir /user/data/persistence
+  && mkdir /user/data/persistence \
   && rm -rf /usr/local/tomcat/webapps/ROOT* \
   && wget -q -O /usr/local/tomcat/webapps/ROOT.war ${GITHUB_REPO}/${APP_FILE} \
   && /usr/local/tomcat/bin/catalina.sh stop \
