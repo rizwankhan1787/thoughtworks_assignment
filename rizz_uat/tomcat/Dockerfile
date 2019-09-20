@@ -1,10 +1,8 @@
-# Apache Tomcat image with build artifact
-
 FROM tomcat:8.5.38-jre8
 
 MAINTAINER Rizwan khan
 
-ENV GITHUB_REPO https://github.com/rizwankhan1787/thoughtworks_assignment/artifacts
+ENV GITHUB_REPO https://github.com/rizwankhan1787/thoughtworks_assignment/artefacts
 ENV APP_FILE companyNews.war
 ENV TERM xterm
 ENV JAVA_OPTS -Djava.security.egd=file:/dev/./urandom
@@ -12,16 +10,15 @@ ENV JAVA_OPTS -Djava.security.egd=file:/dev/./urandom
 RUN apt-get update -qq \
   && apt-get install -qqy curl wget \
   && apt-get clean \
-  && touch /var/log/app.log \
-  && chmod 666 /var/log/app.log \
-  && mkdir /user/data/persistence \
-  && rm -rf /usr/local/tomcat/webapps/ROOT* \
-  && wget -q -O /usr/local/tomcat/webapps/ROOT.war ${GITHUB_REPO}/${APP_FILE} \
-  && /usr/local/tomcat/bin/catalina.sh stop \
-  && /usr/local/tomcat/bin/catalina.sh start
-
+  \
+  && touch /var/log/companyNews.log \
+  && chmod 666 /var/log/companyNews.log
+RUN rm -rf /usr/local/tomcat/webapps/ROOT*
+COPY companyNews.war /usr/local/tomcat/webapps/ROOT.war
 COPY tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
-
+CMD chmod +x /usr/local/tomcat/bin/catalina.sh
+CMD [ "/usr/local/tomcat/bin/catalina.sh", "stop" ]
+CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
 # install Filebeat
 ENV FILEBEAT_VERSION=filebeat_1.2.3_amd64.deb
 RUN curl -L -O https://download.elastic.co/beats/filebeat/${FILEBEAT_VERSION} \
