@@ -1,0 +1,60 @@
+version: '2'
+
+services:
+  static:
+    build: nginx/
+    ports:
+    - 80:80
+    networks:
+    - net
+    depends_on:
+    - web1
+    - web2
+    hostname: static
+    container_name: static
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/letsencrypt/:/etc/letsencrypt/
+
+  web1:
+    build: tomcat/
+    ports:
+    - 8080
+    networks:
+    - net
+    hostname: web1
+    volumes:
+      - ../data:/user/data/persistence
+      
+      
+  web2:
+    build: tomcat/
+    ports:
+    - 8080
+    networks:
+    - net
+    hostname: web2
+    volumes:
+      - ../data:/user/data/persistence
+
+  elk:
+    image: sebp/elk:latest
+    ports:
+    - 5601:5601
+    - 9200:9200
+    - 5044:5044
+    - 5000:5000
+    networks:
+    - net
+    volumes:
+    - app_elk:/var/lib/elasticsearch
+    hostname: elk
+    container_name: elk
+
+volumes:
+  app_elk:
+    external: true
+
+networks:
+  net:
+    driver: bridge
