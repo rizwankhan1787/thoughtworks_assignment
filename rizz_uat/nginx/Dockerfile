@@ -1,20 +1,12 @@
-# NGINX image with build artifact
-
 FROM nginx:latest
 
-
-ENV GITHUB_REPO https://github.com/rizwankhan1787/thoughtworks_assignment/artifacts
-ENV STATIC_FILE static.zip
 RUN apt-get update -qq \
-  && apt-get install -qqy curl wget unzip nano \
-  && apt-get clean \
-  \
-  && wget -O /tmp/${STATIC_FILE} ${GITHUB_REPO}/${STATIC_FILE} \
-  && unzip /tmp/${STATIC_FILE} -d /usr/share/nginx/assets/
-
+&& apt-get install -qqy unzip curl wget nano \
+&& apt-get clean
+ADD static.zip /tmp/
+RUN unzip -d /usr/share/nginx/assets/ /tmp/static.zip \
+    && rm -rf /tmp/static.zip
 COPY default.conf /etc/nginx/conf.d/default.conf
-
-# tweak nginx image set-up, remove log symlinks
 RUN rm /var/log/nginx/access.log /var/log/nginx/error.log
 
 # install Filebeat
