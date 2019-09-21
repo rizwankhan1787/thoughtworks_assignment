@@ -105,9 +105,8 @@ Checking connectivity... done.
 ###Create Certbot SSL Certificates
 
 The Install
-1. Install Python:
-$ yum install python27-devel git
-2. Install Let’s Encrypt by cloning the github repository into /opt/letsencrypt and running the Let’s Encrypt installer:
+
+1. Install Let’s Encrypt by cloning the github repository into /opt/letsencrypt and running the Let’s Encrypt installer:
 $ git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt$ /opt/letsencrypt/letsencrypt-auto --debug
 2a. If you’re running Amazon Linux 2 on your EC2 follow these additional steps (thanks @andrenakkurt!) before continuing.
 3. Make a configuration file (/etc/letsencrypt/config.ini) that will be used to sign all future certificates and renewals with your private key and email address:
@@ -145,7 +144,7 @@ the above script will checks for and installs
 
 
 
-After you log back in and cd tw_assignment  and run muzzu_master.sh
+After you log back in and cd thoughtworks_assignment  and run rizz_main.sh
 ```bash
 $ cd  thoughtworks_assignment && ./rizz_main.sh
 
@@ -153,7 +152,7 @@ rizz usage: command [arg...]
 
 Commands:
 
-rizz_uat      Creates the muzzu_uating environment
+rizz_uat      Creates the rizz_uating environment
 prod       Creates the production environment
 pack       Tag and push production images
 status     Display the status of the environment

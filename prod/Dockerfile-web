@@ -1,0 +1,5 @@
+FROM tomcat:8.0
+MAINTAINER Mujamil Ahamed
+EXPOSE 8080
+# COPY path-to-your-application-war path-to-webapps-in-docker-tomcat
+COPY companyNews.war /usr/local/tomcat/webapps/
